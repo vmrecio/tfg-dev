@@ -11,7 +11,7 @@ return new class extends Migration
     {
         Schema::create('wedding_roles', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique(); // slug-like key: couple, guest, vendor, planner
+            $table->string('name')->unique();
             $table->string('display_name');
             $table->text('description')->nullable();
             $table->timestamps();
@@ -20,7 +20,7 @@ return new class extends Migration
         DB::table('wedding_roles')->insert([
             [
                 'name' => 'couple',
-                'display_name' => 'Novio/Novia',
+                'display_name' => 'Pareja',
                 'description' => 'Miembro de la pareja con acceso completo a su boda',
                 'created_at' => now(),
                 'updated_at' => now(),
