@@ -8,9 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Role extends Model
 {
     public const int ADMIN = 1;
-    public const int COUPLE = 2;
-    public const int VENDOR = 3;
-    public const int GUEST = 4;
+    public const int USER = 2;
 
     protected $fillable = [
         'name',

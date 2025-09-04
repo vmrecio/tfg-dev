@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'email_verified_at' => now(),
         ]);
-        $couple1->roles()->attach(Role::COUPLE);
+        $couple1->roles()->attach(Role::USER);
 
         $couple2 = User::create([
             'name' => 'Miembro_Pareja_2_TEST',
@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'email_verified_at' => now(),
         ]);
-        $couple2->roles()->attach(Role::COUPLE);
+        $couple2->roles()->attach(Role::USER);
 
         $vendor1 = User::create([
             'name' => 'Proveedor_1_TEST',
@@ -44,7 +44,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'email_verified_at' => now(),
         ]);
-        $vendor1->roles()->attach(Role::VENDOR);
+        $vendor1->roles()->attach(Role::USER);
 
         $vendor2 = User::create([
             'name' => 'Proveedor_2_TEST',
@@ -52,7 +52,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'email_verified_at' => now(),
         ]);
-        $vendor2->roles()->attach(Role::VENDOR);
+        $vendor2->roles()->attach(Role::USER);
 
         $guest1 = User::create([
             'name' => 'Invitado_1_TEST',
@@ -60,7 +60,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'email_verified_at' => now(),
         ]);
-        $guest1->roles()->attach(Role::GUEST);
+        $guest1->roles()->attach(Role::USER);
 
         $guest2 = User::create([
             'name' => 'Invitado_2_TEST',
@@ -68,6 +68,6 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'email_verified_at' => now(),
         ]);
-        $guest2->roles()->attach(Role::GUEST);
+        $guest2->roles()->attach(Role::USER);
     }
 }
