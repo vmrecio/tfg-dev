@@ -62,6 +62,11 @@ class User extends Authenticatable implements FilamentUser
             ->withTimestamps();
     }
 
+    public function vendor()
+    {
+        return $this->hasOne(Vendor::class);
+    }
+
     public function canAccessPanel(Panel $panel): bool
     {
         // Solo usuarios con rol ADMIN (tabla roles + pivot user_role)

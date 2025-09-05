@@ -32,4 +32,11 @@ class Wedding extends Model
     {
         return $this->hasMany(Guest::class);
     }
+
+    public function vendors(): BelongsToMany
+    {
+        return $this->belongsToMany(Vendor::class, 'wedding_vendor')
+            ->withPivot(['status', 'contract_amount', 'notes'])
+            ->withTimestamps();
+    }
 }
