@@ -10,8 +10,8 @@ class Vendor extends Model
 {
     protected $fillable = [
         'user_id',
+        'vendor_specialty_id',
         'company_name',
-        'specialty',
         'phone',
         'email',
         'website',
@@ -29,5 +29,9 @@ class Vendor extends Model
             ->withPivot(['status', 'contract_amount', 'notes'])
             ->withTimestamps();
     }
-}
 
+    public function specialty(): BelongsTo
+    {
+        return $this->belongsTo(VendorSpecialty::class, 'vendor_specialty_id');
+    }
+}
