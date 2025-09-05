@@ -13,6 +13,7 @@ class Wedding extends Model
         'event_date',
         'location',
         'description',
+        'pair_signature',
     ];
 
     protected $casts = [
