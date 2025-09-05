@@ -15,10 +15,12 @@ class VendorsTable
         return $table
             ->columns([
                 TextColumn::make('company_name')
+                    ->sortable()
                     ->searchable(),
-                TextColumn::make('vendor_specialty_id')
-                    ->numeric()
-                    ->sortable(),
+                TextColumn::make('specialty.display_name')
+                    ->label('Specialty')
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('phone')
                     ->searchable(),
                 TextColumn::make('email')

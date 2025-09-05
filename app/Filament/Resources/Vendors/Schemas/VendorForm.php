@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Vendors\Schemas;
 
+use App\Models\VendorSpecialty;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -16,8 +17,11 @@ class VendorForm
                 Select::make('user_id')
                     ->relationship('user', 'name')
                     ->required(),
-                TextInput::make('vendor_specialty_id')
-                    ->numeric(),
+                Select::make('vendor_specialty_id')
+                    ->label('Specialty')
+                    ->options(fn () => VendorSpecialty::orderBy('display_name')->pluck('display_name', 'id'))
+                    ->searchable()
+                    ->preload(),
                 TextInput::make('company_name'),
                 TextInput::make('phone')
                     ->tel(),
