@@ -15,6 +15,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 use App\Filament\Resources\Weddings\RelationManagers\GuestsRelationManager;
+use \App\Filament\Resources\Weddings\RelationManagers\VendorsRelationManager;
 
 class WeddingResource extends Resource
 {
@@ -42,6 +43,7 @@ class WeddingResource extends Resource
     {
         return [
             GuestsRelationManager::class,
+            VendorsRelationManager::class,
         ];
     }
 
