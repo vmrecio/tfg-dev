@@ -4,7 +4,6 @@ namespace App\Filament\Resources\Weddings\Pages;
 
 use App\Filament\Resources\Weddings\WeddingResource;
 use App\Filament\Resources\Weddings\Schemas\WeddingForm;
-use App\Models\WeddingRole;
 use App\Models\User;
 use App\Models\Wedding;
 use Filament\Resources\Pages\CreateRecord;
@@ -70,13 +69,10 @@ class CreateWedding extends CreateRecord
 
         logger()->info('IDs', ['id1' => $id1, 'id2' => $id2]);
 
-        // Adjuntar usuarios con rol de pareja
-        $roleId = $this->coupleRoleId();
-        $attach = [];
-        if ($id1) $attach[$id1] = ['wedding_role_id' => $roleId, 'status' => 'active'];
-        if ($id2) $attach[$id2] = ['wedding_role_id' => $roleId, 'status' => 'active'];
-        if (! empty($attach)) {
-            $record->users()->attach($attach);
+        // Adjuntar usuarios como miembros de la pareja (sin datos extra en el pivot)
+        $ids = array_filter([$id1, $id2]);
+        if (! empty($ids)) {
+            $record->users()->attach($ids);
         }
 
         // Persistir firma orden-independiente si no quedó seteada en mutate
@@ -118,18 +114,7 @@ class CreateWedding extends CreateRecord
         }
     }
 
-    /**
-     * Obtiene el id del rol "couple"
-     */
-    private function coupleRoleId(): int
-    {
-        static $id = null;
-        if ($id !== null) {
-            return $id;
-        }
-        $id = WeddingRole::where('name', 'couple')->value('id');
-        return (int) $id;
-    }
+    
 
     /**
      * Construye una firma canónica para la pareja, independientemente del orden.

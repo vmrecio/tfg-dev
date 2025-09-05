@@ -23,9 +23,7 @@ class Wedding extends Model
 
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'wedding_user')
-            ->withPivot(['wedding_role_id', 'status'])
-            ->withTimestamps();
+        return $this->belongsToMany(User::class, 'wedding_couple')->withTimestamps();
     }
 
     public function guests(): HasMany

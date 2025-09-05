@@ -57,9 +57,7 @@ class User extends Authenticatable implements FilamentUser
 
     public function weddings(): BelongsToMany
     {
-        return $this->belongsToMany(Wedding::class, 'wedding_user')
-            ->withPivot(['wedding_role_id', 'status'])
-            ->withTimestamps();
+        return $this->belongsToMany(Wedding::class, 'wedding_couple')->withTimestamps();
     }
 
     public function vendor()
