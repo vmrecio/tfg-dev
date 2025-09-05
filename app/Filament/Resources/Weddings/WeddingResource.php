@@ -22,7 +22,7 @@ class WeddingResource extends Resource
     protected static ?string $pluralModelLabel = 'Bodas';
     protected static ?string $navigationLabel = 'Bodas';
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-heart';
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedHeart;
 
     protected static ?string $recordTitleAttribute = 'name';
 
