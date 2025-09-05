@@ -26,13 +26,6 @@ return new class extends Migration
                 'updated_at' => now(),
             ],
             [
-                'name' => 'guest',
-                'display_name' => 'Invitado',
-                'description' => 'Invitado al evento con acceso limitado',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
                 'name' => 'vendor',
                 'display_name' => 'Proveedor',
                 'description' => 'Proveedor vinculado a servicios de la boda',
