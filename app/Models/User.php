@@ -65,6 +65,11 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasOne(Vendor::class);
     }
 
+    public function timelineItems(): BelongsToMany
+    {
+        return $this->belongsToMany(TimelineItem::class, 'timeline_item_user')->withTimestamps();
+    }
+
     public function canAccessPanel(Panel $panel): bool
     {
         // Solo usuarios con rol ADMIN (tabla roles + pivot user_role)

@@ -37,4 +37,9 @@ class Wedding extends Model
             ->withPivot(['status', 'contract_amount', 'notes'])
             ->withTimestamps();
     }
+
+    public function timelineItems(): HasMany
+    {
+        return $this->hasMany(TimelineItem::class);
+    }
 }
