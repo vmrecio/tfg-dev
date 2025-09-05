@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
        $admin = User::create([
             'name' => 'Víctor',
             'last_name' => 'Recio',
+            'phone' => '+34 600000001',
             'email' => 'victor@example.com',
             'password' => Hash::make('password'),
             'email_verified_at' => now(),
@@ -26,6 +27,7 @@ class UserSeeder extends Seeder
         $couple1 = User::create([
             'name' => 'Félix',
             'last_name' => 'Blanco',
+            'phone' => '+34 600000011',
             'email' => 'felix@example.com',
             'password' => Hash::make('password'),
             'email_verified_at' => now(),
@@ -35,6 +37,7 @@ class UserSeeder extends Seeder
         $couple2 = User::create([
             'name' => 'Cristina',
             'last_name' => 'Cantos',
+            'phone' => '+34 600000012',
             'email' => 'cristina@example.com',
             'password' => Hash::make('password'),
             'email_verified_at' => now(),
@@ -44,6 +47,7 @@ class UserSeeder extends Seeder
         $vendor1 = User::create([
             'name' => 'Víctor',
             'last_name' => 'Morante',
+            'phone' => '+34 600000021',
             'email' => 'morante@example.com',
             'password' => Hash::make('password'),
             'email_verified_at' => now(),
@@ -53,6 +57,7 @@ class UserSeeder extends Seeder
         $vendor2 = User::create([
             'name' => 'Minerva',
             'last_name' => 'Mateos',
+            'phone' => '+34 600000022',
             'email' => 'minerva@example.com',
             'password' => Hash::make('password'),
             'email_verified_at' => now(),
@@ -62,6 +67,7 @@ class UserSeeder extends Seeder
         $guest1 = User::create([
             'name' => 'David',
             'last_name' => 'Casarrubio',
+            'phone' => '+34 600000031',
             'email' => 'deivid@example.com',
             'password' => Hash::make('password'),
             'email_verified_at' => now(),
@@ -71,6 +77,7 @@ class UserSeeder extends Seeder
         $guest2 = User::create([
             'name' => 'Ángela',
             'last_name' => 'García',
+            'phone' => '+34 600000032',
             'email' => 'angela@example.com',
             'password' => Hash::make('password'),
             'email_verified_at' => now(),
