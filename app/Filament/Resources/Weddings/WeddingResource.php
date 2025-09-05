@@ -14,6 +14,8 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
+use App\Filament\Resources\Weddings\RelationManagers\GuestsRelationManager;
+
 class WeddingResource extends Resource
 {
     protected static ?string $model = Wedding::class;
@@ -39,7 +41,7 @@ class WeddingResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            GuestsRelationManager::class,
         ];
     }
 
