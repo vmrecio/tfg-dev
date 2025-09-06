@@ -93,6 +93,37 @@ class VendorsRelationManager extends RelationManager
                     }),
             ])
             ->recordActions([
+                Action::make('edit')
+                    ->label('Editar')
+                    ->icon('heroicon-o-pencil')
+                    ->form(fn (Schema $schema) => $schema->components([
+                        Select::make('status')
+                            ->label('Estado')
+                            ->options([
+                                'pending' => 'Pending',
+                                'confirmed' => 'Confirmed',
+                                'declined' => 'Declined',
+                            ])
+                            ->native(false)
+                            ->default(fn ($record) => $record->pivot->status ?? 'pending'),
+                        TextInput::make('contract_amount')
+                            ->label('Importe')
+                            ->numeric()
+                            ->prefix('€')
+                            ->default(fn ($record) => $record->pivot->contract_amount ?? null),
+                        Textarea::make('notes')
+                            ->label('Notas')
+                            ->rows(3)
+                            ->columnSpanFull()
+                            ->default(fn ($record) => $record->pivot->notes ?? null),
+                    ]))
+                    ->action(function (Vendor $record, array $data) {
+                        $this->getOwnerRecord()->vendors()->updateExistingPivot($record->id, [
+                            'status' => $data['status'],
+                            'contract_amount' => $data['contract_amount'] ?? null,
+                            'notes' => $data['notes'] ?? null,
+                        ]);
+                    }),
                 DetachAction::make(),
             ]);
     }
