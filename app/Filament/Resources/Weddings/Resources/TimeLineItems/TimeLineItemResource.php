@@ -37,7 +37,7 @@ class TimeLineItemResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            \App\Filament\Resources\Weddings\Resources\TimeLineItems\RelationManagers\AssigneesRelationManager::class,
         ];
     }
 
