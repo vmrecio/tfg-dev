@@ -23,12 +23,9 @@ class TimeLineItemsTable
                 TextColumn::make('end_at')
                     ->dateTime()
                     ->sortable(),
-                TextColumn::make('due_at')
-                    ->dateTime()
-                    ->sortable(),
-                TextColumn::make('position')
-                    ->numeric()
-                    ->sortable(),
+                TextColumn::make('location')
+                    ->label('Location')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

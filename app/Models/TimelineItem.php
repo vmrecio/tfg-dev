@@ -15,15 +15,12 @@ class TimelineItem extends Model
         'status',
         'start_at',
         'end_at',
-        'due_at',
-        'position',
+        'location',
     ];
 
     protected $casts = [
         'start_at' => 'datetime',
         'end_at' => 'datetime',
-        'due_at' => 'datetime',
-        'position' => 'integer',
     ];
 
     public function wedding(): BelongsTo
@@ -36,4 +33,3 @@ class TimelineItem extends Model
         return $this->belongsToMany(User::class, 'timeline_item_user')->withTimestamps();
     }
 }
-

@@ -24,11 +24,9 @@ class TimeLineItemForm
                     ->required(),
                 DateTimePicker::make('start_at'),
                 DateTimePicker::make('end_at'),
-                DateTimePicker::make('due_at'),
-                TextInput::make('position')
-                    ->required()
-                    ->numeric()
-                    ->default(0),
+                TextInput::make('location')
+                    ->label('Location')
+                    ->maxLength(255),
             ]);
     }
 }
