@@ -18,10 +18,6 @@ class TimeLineItemForm
                     ->required(),
                 Textarea::make('description')
                     ->columnSpanFull(),
-                Select::make('status')
-                    ->options(['todo' => 'Todo', 'in_progress' => 'In progress', 'done' => 'Done', 'blocked' => 'Blocked'])
-                    ->default('todo')
-                    ->required(),
                 DateTimePicker::make('start_at'),
                 DateTimePicker::make('end_at'),
                 TextInput::make('location')

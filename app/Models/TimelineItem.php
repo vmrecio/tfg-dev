@@ -12,7 +12,6 @@ class TimelineItem extends Model
         'wedding_id',
         'title',
         'description',
-        'status',
         'start_at',
         'end_at',
         'location',

@@ -16,7 +16,6 @@ class TimeLineItemsTable
             ->columns([
                 TextColumn::make('title')
                     ->searchable(),
-                TextColumn::make('status'),
                 TextColumn::make('start_at')
                     ->dateTime()
                     ->sortable(),
