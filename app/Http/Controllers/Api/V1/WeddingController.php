@@ -11,11 +11,26 @@ use App\Models\Wedding;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Str;
+use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Group;
+
+#[Group('Weddings', 'Manage weddings - create, read, update and delete weddings.')]
+#[Authenticated]
 
 class WeddingController extends Controller
 {
     public function index(WeddingIndexRequest $request): JsonResponse
     {
+        /**
+         * Listar bodas (paginadas)
+         *
+         * @queryParam event_date date Fecha exacta (Y-m-d). Example: 2025-01-02
+         * @queryParam event_date_from date Fecha desde (Y-m-d).
+         * @queryParam event_date_to date Fecha hasta (Y-m-d).
+         * @queryParam location string Filtrado parcial por ubicación.
+         * @queryParam per_page integer Elementos por página. Example: 10
+         * @queryParam page integer Número de página. Example: 2
+         */
         $query = Wedding::query()
             ->withCount(['guests', 'vendors', 'timelineItems']);
 
@@ -75,6 +90,15 @@ class WeddingController extends Controller
 
     public function store(WeddingStoreRequest $request): JsonResponse
     {
+        /**
+         * Crear boda
+         *
+         * @bodyParam name string required Nombre de la boda. Example: Boda de Ada y Bob
+         * @bodyParam slug string Slug único. Si se omite, se generará automáticamente.
+         * @bodyParam event_date date Fecha del evento (Y-m-d). Example: 2025-10-10
+         * @bodyParam location string Ubicación del evento. Example: Madrid
+         * @bodyParam description string Descripción o notas.
+         */
         $data = $request->validated();
 
         if (empty($data['slug'])) {
@@ -95,11 +119,26 @@ class WeddingController extends Controller
 
     public function show(Wedding $wedding): JsonResponse
     {
+        /**
+         * Mostrar una boda
+         *
+         * @urlParam wedding integer required ID de la boda.
+         */
         return response()->json((new WeddingResource($wedding))->toArray(request()));
     }
 
     public function update(WeddingUpdateRequest $request, Wedding $wedding): JsonResponse
     {
+        /**
+         * Actualizar una boda
+         *
+         * @urlParam wedding integer required ID de la boda.
+         * @bodyParam name string Nombre de la boda.
+         * @bodyParam slug string Slug único; si se envía vacío y hay name, se regenera.
+         * @bodyParam event_date date Fecha del evento (Y-m-d).
+         * @bodyParam location string Ubicación.
+         * @bodyParam description string Descripción o notas.
+         */
         $data = $request->validated();
 
         // If slug provided empty string, regenerate
@@ -121,6 +160,11 @@ class WeddingController extends Controller
 
     public function destroy(Wedding $wedding): JsonResponse
     {
+        /**
+         * Eliminar una boda
+         *
+         * @urlParam wedding integer required ID de la boda.
+         */
         $wedding->delete();
         return response()->json(null, 204);
     }
