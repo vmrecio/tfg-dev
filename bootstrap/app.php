@@ -13,14 +13,15 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
         then: function () {
             // Load API versioned routes
-            Route::middleware('api')
+            Route::middleware(['api', 'auth:sanctum'])
                 ->prefix('api/v1')
                 ->as('api.v1.')
                 ->group(__DIR__.'/../routes/api/v1.php');
         },
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // Ensure API responses are wrapped consistently; run this as the outermost API middleware
+        $middleware->prependToGroup('api', App\Http\Middleware\ApiResponseMiddleware::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
