@@ -38,6 +38,14 @@ return [
             'exclude' => [
                 // 'GET /health', 'admin.*'
             ],
+
+            'apply' => [
+                'headers' => [
+                    'Authorization' => 'Bearer ' . env('SCRIBE_AUTH_KEY', '{token}'),
+                    'Content-Type' => 'application/json',
+                    'Accept' => 'application/json',
+                ],
+            ],
         ],
     ],
 

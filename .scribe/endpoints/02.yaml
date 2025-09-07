@@ -94,7 +94,7 @@ endpoints:
     responses:
       -
         status: 401
-        content: '{"success":false,"data":null,"message":"Unauthenticated.","timestamp":"2025-09-07T05:30:21.038022Z"}'
+        content: '{"success":false,"data":null,"message":"Unauthenticated.","timestamp":"2025-09-07T05:41:25.074993Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -231,7 +231,7 @@ endpoints:
     responses:
       -
         status: 401
-        content: '{"success":false,"data":null,"message":"Unauthenticated.","timestamp":"2025-09-07T05:30:21.057760Z"}'
+        content: '{"success":false,"data":null,"message":"Unauthenticated.","timestamp":"2025-09-07T05:41:25.086251Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
