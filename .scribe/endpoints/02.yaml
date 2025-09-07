@@ -16,6 +16,7 @@ endpoints:
       deprecated: false
       custom: []
     headers:
+      Authorization: 'Bearer {token}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -94,7 +95,7 @@ endpoints:
     responses:
       -
         status: 401
-        content: '{"success":false,"data":null,"message":"Unauthenticated.","timestamp":"2025-09-07T05:41:25.074993Z"}'
+        content: '{"success":false,"data":null,"message":"Unauthenticated.","timestamp":"2025-09-07T06:05:07.421652Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -102,7 +103,10 @@ endpoints:
         description: null
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
     controller: null
     method: null
     route: null
@@ -122,6 +126,7 @@ endpoints:
       deprecated: false
       custom: []
     headers:
+      Authorization: 'Bearer {token}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -188,7 +193,10 @@ endpoints:
     fileParameters: []
     responses: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
     controller: null
     method: null
     route: null
@@ -208,6 +216,7 @@ endpoints:
       deprecated: false
       custom: []
     headers:
+      Authorization: 'Bearer {token}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -231,7 +240,7 @@ endpoints:
     responses:
       -
         status: 401
-        content: '{"success":false,"data":null,"message":"Unauthenticated.","timestamp":"2025-09-07T05:41:25.086251Z"}'
+        content: '{"success":false,"data":null,"message":"Unauthenticated.","timestamp":"2025-09-07T06:05:07.430904Z"}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -239,7 +248,10 @@ endpoints:
         description: null
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
     controller: null
     method: null
     route: null
@@ -260,6 +272,7 @@ endpoints:
       deprecated: false
       custom: []
     headers:
+      Authorization: 'Bearer {token}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -337,7 +350,10 @@ endpoints:
     fileParameters: []
     responses: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
     controller: null
     method: null
     route: null
@@ -357,6 +373,7 @@ endpoints:
       deprecated: false
       custom: []
     headers:
+      Authorization: 'Bearer {token}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -379,7 +396,10 @@ endpoints:
     fileParameters: []
     responses: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
     controller: null
     method: null
     route: null
